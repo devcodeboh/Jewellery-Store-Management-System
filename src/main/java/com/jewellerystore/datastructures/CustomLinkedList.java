@@ -2,9 +2,6 @@ package com.jewellerystore.datastructures;
 
 import java.io.Serializable;
 
-/**
- * Student-friendly singly linked list used as the main storage structure.
- */
 public class CustomLinkedList<T> implements Serializable {
     public interface Matcher<T> {
         boolean matches(T value);

@@ -179,7 +179,6 @@ public class MainController {
     }
 
     private void wireSelectionListeners() {
-        // The list views work like a drill-down: case -> tray -> item.
         caseListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             refreshTrayList(newValue);
             itemListView.getItems().clear();
@@ -404,7 +403,6 @@ public class MainController {
             return;
         }
 
-        // Show the selected item in a simple text block to keep the UI easy to explain.
         StringBuilder builder = new StringBuilder();
         builder.append("Description: ").append(item.getDescription()).append("\n");
         builder.append("Type: ").append(item.getType()).append("\n");

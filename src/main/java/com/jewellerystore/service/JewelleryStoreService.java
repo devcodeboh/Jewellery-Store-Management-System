@@ -9,9 +9,6 @@ import com.jewellerystore.model.JewelleryItem;
 import com.jewellerystore.model.JewelleryStore;
 import com.jewellerystore.model.MaterialComponent;
 
-/**
- * Main service class for store operations.
- */
 public class JewelleryStoreService {
     private JewelleryStore store;
 
@@ -53,7 +50,6 @@ public class JewelleryStoreService {
         validateText(trayIdentifier, "Tray identifier is required.");
         checkTrayMeasurements(widthCm, depthCm);
 
-        // Tray ids must be unique in the whole store, not just inside one case.
         if (findTrayGlobally(trayIdentifier) != null) {
             throw new IllegalArgumentException("Tray identifier must be globally unique.");
         }
@@ -126,7 +122,6 @@ public class JewelleryStoreService {
         double smallestDifference = Double.MAX_VALUE;
         SearchResult firstPlace = null;
 
-        // Keep similar jewellery types together first, then use price as a simple tie-break rule.
         for (int caseIndex = 0; caseIndex < store.getDisplayCases().size(); caseIndex++) {
             DisplayCase displayCase = store.getDisplayCases().get(caseIndex);
             for (int trayIndex = 0; trayIndex < displayCase.getTrays().size(); trayIndex++) {
@@ -239,7 +234,6 @@ public class JewelleryStoreService {
     }
 
     private boolean itemMatches(JewelleryItem item, String query) {
-        // Search checks both the jewellery item itself and its material details.
         if (matchesText(item.getDescription(), query)
                 || matchesText(item.getType(), query)
                 || matchesText(item.getTargetGender(), query)

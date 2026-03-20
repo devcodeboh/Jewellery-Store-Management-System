@@ -8,9 +8,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-/**
- * Binary persistence is simple to explain in a demo and keeps the whole custom object graph intact.
- */
 public class StorePersistenceManager {
 
     public void saveStore(JewelleryStore store, String filePath) throws IOException {
